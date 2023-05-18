@@ -10,6 +10,7 @@ int motorR_pin1 = 10;
 int motorR_pin2 = 11;
 
 // variables for pid
+int position;
 int P,I,D,lastError;
 float kp=0.1,ki=1,kd=1;
 const int maxspeedL=200,maxspeedR=200;
@@ -66,7 +67,7 @@ void pid(){
         ir[i] = digitalRead(ir_pin[i]);
         air[i] = analogRead(ir_pin[i]);
     }
-    int position = v1/v2;
+    position = v1/v2;
 
     //pid control
     int error = 3500-position;
