@@ -27,17 +27,6 @@ void setup() {
     pinMode(motorR_pin2, OUTPUT);
 };
 
-int read_ir() {
-    int v1, v2;
-    for (int i = 0; i < 8; i++) {
-        v1 += i * ir[i];
-        v2 += ir[i] ;
-        ir[i] = digitalRead(ir_pin[i]);
-        air[i] = analogRead(ir_pin[i]);
-    }
-    return v1/v2;
-}
-
 void loop() {
     pid();
 
