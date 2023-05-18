@@ -35,12 +35,12 @@ void read_ir() {
   }
   Serial.println();
 
-  Serial.print("IR analog values: ");
-  for (int i = 0; i < 8; ++i) {
-    Serial.print(air[i]);
-    Serial.print(",");
-  }
-  Serial.println();
+//  Serial.print("IR analog values: ");
+//  for (int i = 0; i < 8; ++i) {
+//    Serial.print(air[i]);
+//    Serial.print(",");
+//  }
+//  Serial.println();
   // end here
 }
 
@@ -104,7 +104,7 @@ void softLeft() {
 void loop() {
   read_ir();
   
-  if(ir[0]==0 && ir[1]==0&&ir[2]==0 && ir[3]==1&&ir[4]==1 && ir[5]==0&&ir[6]==0 && ir[7]==0)
+  if(ir[0]==0 && ir[1]==0&&ir[2]==0 && ir[3]==1&&ir[4]==1 && ir[5]==0 &&ir[6]==0  && ir[7]==0)
   moveStraight();
   
   if(ir[0]==1 && ir[1]==1 && ir[2]==1 && ir[3]==1 && ir[4]==1 && ir[5]==0&&ir[6]==0 && ir[7]==0)
