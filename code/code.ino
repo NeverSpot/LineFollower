@@ -68,8 +68,16 @@ void setspeed(int lspeed,int rspeed){
     analogWrite(motorR_pin1, rspeed);
 }
 void pid(){
-    //to be coded
-    int position=read_ir();
+
+    // reading ir and calculating position
+    int v1, v2;
+    for (int i = 0; i < 8; i++) {
+        v1 += i * ir[i];
+        v2 += ir[i] ;
+        ir[i] = digitalRead(ir_pin[i]);
+        air[i] = analogRead(ir_pin[i]);
+    }
+    int position = v1/v2;
 
     //pid control
     int error = 3500-position;
